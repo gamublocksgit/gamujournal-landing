@@ -2,7 +2,7 @@
    Gamu Journal — Landing Page
    Mobile-first. Tokens from Gamu Blocks DS (tokens.css).
    Studio palette stays monochrome; --accent reserved for
-   one moment per screen (Journal violet).
+   one moment per screen (Journal sage).
    ========================================================= */
 
 * { box-sizing: border-box; }
@@ -19,11 +19,11 @@ html, body {
 }
 
 body {
-  /* Journal violet as the single restrained accent */
-  --accent: #8a5cf6;
-  --accent-soft: #efe7ff;
+  /* Journal sage as the single restrained accent */
+  --accent: #8AA382;
+  --accent-soft: #edf4ea;
   --accent-ink: #ffffff;
-  --accent-deep: #6238d9;
+  --accent-deep: #526e4b;
 }
 
 img { max-width: 100%; display: block; }
@@ -787,7 +787,7 @@ h1, h2, h3, h4, h5 {
 .feature.flip .feat-copy p { color: var(--bone-2); }
 .feature.flip .feat-bullets li { color: var(--bone); }
 .feature.flip .feat-bullets li::before { border-color: var(--bone); }
-.feature.flip .feat-tag { background: rgba(139,92,246,0.18); color: #c9b3ff; }
+.feature.flip .feat-tag { background: rgba(138,163,130,0.22); color: #d8e5d4; }
 
 @media (min-width: 768px) {
   .feature { grid-template-columns: 1fr 1fr; padding: 40px; gap: 40px; align-items: center; }
