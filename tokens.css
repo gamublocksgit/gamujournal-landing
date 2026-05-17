@@ -1,0 +1,286 @@
+/* =============================================================
+   Gamu Blocks — Foundations
+   Colors, type, spacing, radii, shadows.
+   Drop into any HTML via <link rel="stylesheet">.
+   ============================================================= */
+
+/* ---------- Type stack ----------
+   Display: Geist — geometric, slightly humanist sans, matches wordmark.
+   Body:    Geist — same family, lower weights, for a unified voice.
+   Mono:    Geist Mono — for tabular numerics (prices, timer digits, dates).
+   Japanese: Zen Kaku Gothic New — used as fallback for kana/kanji content.
+   These are loaded from Google Fonts in index.html files; production should
+   self-host into /fonts/. (See README VISUAL FOUNDATIONS for substitution note.)
+*/
+
+:root {
+  /* ---------- BRAND COLORS ----------
+     The studio identity is monochrome: true black canvas, warm off-white
+     paper, bone-white type. Each Gamu app brings its OWN accent — never
+     a studio-wide neon. Use --accent (overridden per surface) sparingly:
+     for primary action, current focus, and at most one moment per screen.
+  */
+  --ink:           #000000;   /* canvas — primary dark surface */
+  --ink-2:         #0c0c0c;   /* one notch up; for elevated cards on ink */
+  --ink-3:         #161616;   /* divider/raised input on ink */
+  --ink-4:         #232323;   /* hairline / disabled */
+
+  --paper:         #fafaf7;   /* canvas — primary light surface, warm-neutral */
+  --paper-2:       #f1f0eb;   /* card / subtle fill on paper */
+  --paper-3:       #e4e2da;   /* hairline / divider on paper */
+  --paper-4:       #c9c6bc;   /* disabled border */
+
+  --bone:          #ededea;   /* primary text on ink */
+  --bone-2:        #b8b5ad;   /* secondary text on ink */
+  --bone-3:        #7a7872;   /* tertiary text on ink */
+
+  --char:          #111110;   /* primary text on paper */
+  --char-2:        #4a4944;   /* secondary text on paper */
+  --char-3:        #7a7872;   /* tertiary text on paper */
+
+  /* App accents — each Gamu app has its own colour. Override --accent
+     per surface (e.g. body[data-app="neko"] { --accent: var(--neko); }).
+     None of these are claimed as the studio's brand colour. */
+  --neko:          #FF7A2E;   /* Neko (focus timer) — warm coral, sleeping-cat warmth */
+  --journal:       #B388FF;   /* Journal (encrypted diary) — soft violet ink */
+  --gronu:         #4DC8FF;   /* Gronu (stopwatch) — precise cyan */
+  --gnit:          #FF6BAA;   /* Gnit (knit counter) — yarn pink */
+
+  /* Semantic — derived from ink, not from any brand accent */
+  --positive:      #1f9d4a;   /* completion, "good" deltas */
+  --negative:      #d8442a;   /* destructive, error, bad deltas */
+  --warn:          #c89200;
+  --info:          #2b6fb8;
+
+  /* Default accent for the studio/marketing surface = monochrome ink.
+     Primary action on paper is filled ink; on ink it's filled bone.
+     App surfaces override --accent to their own colour. */
+  --accent:        var(--ink);
+  --accent-press:  var(--ink-3);
+  --accent-ink:    var(--paper);
+
+  /* ---------- TYPE ---------- */
+  --font-display:  "Geist", "Zen Kaku Gothic New", system-ui, sans-serif;
+  --font-body:     "Geist", "Zen Kaku Gothic New", system-ui, sans-serif;
+  --font-mono:     "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* Type scale (1.250 — Major Third). Mobile-aware. */
+  --t-caption:     12px;   /* 16 line — fine print, badges */
+  --t-label:       13px;   /* 16 line — form labels, eyebrow */
+  --t-body-sm:     14px;   /* 20 line — secondary body */
+  --t-body:        16px;   /* 24 line — primary body */
+  --t-body-lg:     18px;   /* 28 line — emphasis paragraphs */
+  --t-h6:          18px;   /* 24 line */
+  --t-h5:          22px;   /* 28 line */
+  --t-h4:          28px;   /* 34 line */
+  --t-h3:          36px;   /* 42 line */
+  --t-h2:          48px;   /* 54 line */
+  --t-h1:          64px;   /* 68 line */
+  --t-display:     96px;   /* 96 line — hero only */
+
+  /* Weights — Geist supports 100–900; we use a confident range. */
+  --w-regular:     400;
+  --w-medium:      500;
+  --w-semibold:    600;
+  --w-bold:        700;
+  --w-black:       900;
+
+  /* ---------- SPACING ---------- (4px base, named in t-shirt sizes) */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  24px;
+  --space-6:  32px;
+  --space-7:  48px;
+  --space-8:  64px;
+  --space-9:  96px;
+  --space-10: 128px;
+
+  /* ---------- RADII ----------
+     Gamu Blocks is BLOCKY. Radii are restrained — never pillowy.
+     Most components use --r-2 or --r-3. Pills exist but are rare. */
+  --r-0:  0;
+  --r-1:  4px;
+  --r-2:  8px;
+  --r-3:  12px;
+  --r-4:  16px;
+  --r-5:  20px;
+  --r-pill: 999px;
+
+  /* ---------- BORDERS ---------- */
+  --hairline:      1px;
+  --border:        1.5px;     /* default; chunky enough to feel intentional */
+  --border-heavy:  2px;       /* primary buttons, focus rings */
+
+  /* ---------- SHADOWS ----------
+     Two systems: (a) hard offset "block shadow" for the playful indie
+     blockiness — used on prominent cards/buttons by request.
+     (b) soft, near-invisible shadows — used by default, sparingly.
+     NEVER stack multiple decorative shadows.
+  */
+  --shadow-block-sm: 3px 3px 0 0 var(--ink);
+  --shadow-block:    5px 5px 0 0 var(--ink);
+  --shadow-block-lg: 8px 8px 0 0 var(--ink);
+
+  --shadow-soft-1:   0 1px 2px rgb(0 0 0 / 0.04);
+  --shadow-soft-2:   0 4px 12px rgb(0 0 0 / 0.06);
+
+  /* ---------- MOTION ---------- */
+  --ease-out:      cubic-bezier(0.2, 0.7, 0.2, 1);
+  --ease-in-out:   cubic-bezier(0.6, 0, 0.4, 1);
+  --dur-fast:      120ms;
+  --dur-base:      180ms;
+  --dur-slow:      280ms;
+
+  /* ---------- LAYOUT ---------- */
+  --content-w:     1120px;
+  --content-w-narrow: 720px;
+}
+
+/* ---------- Theme: dark surface inverts roles for fg/bg ---------- */
+[data-theme="dark"] {
+  --bg:       var(--ink);
+  --bg-2:     var(--ink-2);
+  --bg-3:     var(--ink-3);
+  --divider:  var(--ink-4);
+  --fg-1:     var(--bone);
+  --fg-2:     var(--bone-2);
+  --fg-3:     var(--bone-3);
+}
+[data-theme="light"], :root {
+  --bg:       var(--paper);
+  --bg-2:     var(--paper-2);
+  --bg-3:     var(--paper-3);
+  --divider:  var(--paper-3);
+  --fg-1:     var(--char);
+  --fg-2:     var(--char-2);
+  --fg-3:     var(--char-3);
+}
+
+/* ===========================================================
+   SEMANTIC ELEMENT STYLES
+   These are opinionated defaults; opt into them with the
+   `.gb` class on a wrapper, or by adding gb-prose to text blocks.
+   =========================================================== */
+
+.gb, .gb * { box-sizing: border-box; }
+
+.gb {
+  font-family: var(--font-body);
+  color: var(--fg-1);
+  background: var(--bg);
+  font-feature-settings: "ss01", "cv11"; /* Geist stylistic alts */
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.gb h1, .gb .h1 {
+  font-family: var(--font-display);
+  font-size: var(--t-h1);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  font-weight: var(--w-bold);
+  color: var(--fg-1);
+  margin: 0 0 var(--space-5);
+}
+.gb h2, .gb .h2 {
+  font-family: var(--font-display);
+  font-size: var(--t-h2);
+  line-height: 1.1;
+  letter-spacing: -0.018em;
+  font-weight: var(--w-bold);
+  margin: 0 0 var(--space-4);
+}
+.gb h3, .gb .h3 {
+  font-family: var(--font-display);
+  font-size: var(--t-h3);
+  line-height: 1.15;
+  letter-spacing: -0.012em;
+  font-weight: var(--w-semibold);
+  margin: 0 0 var(--space-4);
+}
+.gb h4, .gb .h4 {
+  font-family: var(--font-display);
+  font-size: var(--t-h4);
+  line-height: 1.25;
+  letter-spacing: -0.008em;
+  font-weight: var(--w-semibold);
+  margin: 0 0 var(--space-3);
+}
+.gb h5, .gb .h5 {
+  font-size: var(--t-h5);
+  line-height: 1.3;
+  font-weight: var(--w-semibold);
+  margin: 0 0 var(--space-3);
+}
+.gb h6, .gb .h6 {
+  font-size: var(--t-h6);
+  line-height: 1.4;
+  font-weight: var(--w-semibold);
+  margin: 0 0 var(--space-2);
+}
+
+.gb p, .gb .p {
+  font-size: var(--t-body);
+  line-height: 1.55;
+  color: var(--fg-1);
+  margin: 0 0 var(--space-4);
+  text-wrap: pretty;
+  max-width: 70ch;
+}
+.gb .body-lg { font-size: var(--t-body-lg); line-height: 1.55; }
+.gb .body-sm { font-size: var(--t-body-sm); line-height: 1.5; }
+.gb .caption {
+  font-size: var(--t-caption);
+  line-height: 1.4;
+  color: var(--fg-2);
+  letter-spacing: 0.01em;
+}
+.gb .eyebrow {
+  font-size: var(--t-label);
+  font-weight: var(--w-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--fg-2);
+}
+.gb .label {
+  font-size: var(--t-label);
+  font-weight: var(--w-medium);
+  color: var(--fg-2);
+}
+
+.gb .mono,
+.gb code,
+.gb kbd {
+  font-family: var(--font-mono);
+  font-feature-settings: "tnum", "zero", "ss02";
+}
+
+.gb a {
+  color: var(--fg-1);
+  text-decoration-line: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--accent);
+  transition: text-decoration-thickness var(--dur-fast) var(--ease-out);
+}
+.gb a:hover { text-decoration-thickness: 3px; }
+.gb a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+.gb ::selection { background: var(--accent); color: var(--accent-ink); }
+
+/* Focus ring — visible, consistent, accessible */
+.gb :focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: var(--r-2);
+}
+
+/* Numeric / tabular utility for prices, timers, counts */
+.gb .num,
+.gb .tnum {
+  font-family: var(--font-mono);
+  font-feature-settings: "tnum", "zero";
+  font-variant-numeric: tabular-nums;
+}

@@ -1,0 +1,692 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Gamu Journal | Private Offline Diary and Mood Tracker</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Write privately with an offline diary built for calm reflection. Gamu Journal keeps entries on your device with local protection, mood tracking, prompts, search, and backups you control.">
+<meta name="theme-color" content="#000000">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Gamu Journal | A private diary that stays on your device">
+<meta property="og:description" content="Offline diary, mood tracker, prompts, search and backups. No accounts. No cloud sync. No subscription pressure.">
+<meta property="og:image" content="assets/ss-editor.png">
+<meta property="og:url" content="https://gamublocks.com/journal">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;900&family=Geist+Mono:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap">
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="styles.css">
+
+<!-- Structured data: SoftwareApplication -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MobileApplication",
+  "name": "Gamu Journal",
+  "operatingSystem": "Android, iOS",
+  "applicationCategory": "LifestyleApplication",
+  "downloadUrl": [
+    "https://play.google.com/store/apps/details?id=com.gamublocks.gamujournal",
+    "https://apps.apple.com/us/app/gamu-journal-private-diary/id6759192253"
+  ],
+  "offers": [
+    { "@type": "Offer", "price": "0", "priceCurrency": "USD", "name": "Free" },
+    { "@type": "Offer", "name": "Pro (one-time purchase)" }
+  ],
+  "publisher": { "@type": "Organization", "name": "Gamu Blocks", "url": "https://gamublocks.com" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Gamu Blocks",
+  "url": "https://gamublocks.com",
+  "logo": "assets/logo.png"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does Gamu Journal need an account?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. There is no sign-up, no email, and no username. You install the app and start writing." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does my journal sync to the cloud?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. Gamu Journal has no built-in cloud sync. Entries stay on the device where they are written unless you export an encrypted backup file yourself." }
+    },
+    {
+      "@type": "Question",
+      "name": "How is my journal protected?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The journal is encrypted at rest using AES-256 local storage and can be locked with PIN, password, or biometrics." }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if I lose my phone?",
+      "acceptedAnswer": { "@type": "Answer", "text": "If you have not exported a backup, there is no cloud server to restore from. Export encrypted .gamu backups periodically and store them somewhere you trust." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a subscription?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. Free is free, and Pro is positioned as a one-time purchase through the app stores." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there an iPhone version?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Gamu Journal is available on the App Store." }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ============================================================
+     NAV
+============================================================ -->
+<header class="nav" data-screen-label="00 Nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Gamu Journal home">
+      <span class="brand-mark"><img src="assets/logo.png" alt=""></span>
+      <span>Gamu Journal</span>
+    </a>
+    <ul class="nav-links" aria-label="Primary">
+      <li><a href="#features">Features</a></li>
+      <li><a href="#privacy">Privacy</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <a class="nav-cta" href="#get" data-track="nav_get">Get the app</a>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ============================================================
+     HERO
+============================================================ -->
+<section class="hero" id="top" data-screen-label="01 Hero">
+  <div class="hero-grid-bg" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="hero-copy">
+      <h1>A private diary that stays on your device.</h1>
+      <p class="hero-sub">
+        Write, reflect, and track your mood in an offline journal built for calm,
+        encrypted privacy, without accounts, cloud sync, ads, or subscription pressure.
+      </p>
+
+      <div class="hero-chips" role="list" aria-label="Why Gamu Journal">
+        <span class="chip" role="listitem"><img src="icons/cloud.svg" alt="">Offline-first</span>
+        <span class="chip" role="listitem"><img src="icons/eye-closed.svg" alt="">No account</span>
+        <span class="chip" role="listitem"><img src="icons/shield-check.svg" alt="">AES-256 local storage</span>
+        <span class="chip" role="listitem"><img src="icons/key.svg" alt="">PIN · password · biometrics</span>
+      </div>
+
+      <div class="hero-ctas" id="get">
+        <a class="store-link" href="https://play.google.com/store/apps/details?id=com.gamublocks.gamujournal" aria-label="Get Gamu Journal on Google Play" data-track="hero_play" data-store-badge="google_play">
+          <img src="uploads/GetItOnGooglePlay_Badge_Web_color_English.png" alt="Get it on Google Play" width="239" height="71">
+        </a>
+        <a class="store-link" href="https://apps.apple.com/us/app/gamu-journal-private-diary/id6759192253" aria-label="Download Gamu Journal on the App Store" data-track="hero_apple" data-store-badge="app_store">
+          <img src="uploads/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg" alt="Download on the App Store" width="180" height="54">
+        </a>
+      </div>
+
+      <div class="center">
+        <a class="see-privacy" href="#privacy" data-track="hero_see_privacy">
+          See how privacy works
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 4v16M4 12l8 8 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+
+      <p class="hero-micro" aria-label="Install terms">
+        <span>Free to install</span>
+        <span class="sep">·</span>
+        <span>No account required</span>
+        <span class="sep">·</span>
+        <span>Your entries stay on your device</span>
+      </p>
+    </div>
+
+    <!-- Three-phone composition -->
+    <div class="hero-phones" aria-label="App preview: writing, lock, and mood screens">
+      <span class="hero-tag tl">01<br>Lock</span>
+      <span class="hero-tag tr">03<br>Mood</span>
+      <span class="hero-tag bl">// Encrypted on device</span>
+      <span class="hero-tag br">// No account ever</span>
+
+      <div class="phone phone-left">
+        <span class="phone-notch" aria-hidden="true"></span>
+        <picture>
+          <source srcset="assets/ss-lock.avif" type="image/avif">
+          <source srcset="assets/ss-lock.webp" type="image/webp">
+          <img src="assets/ss-lock.png" alt="PIN unlock screen — Welcome Back, your journal is locked on this device" loading="eager">
+        </picture>
+      </div>
+      <div class="phone phone-center">
+        <span class="phone-notch" aria-hidden="true"></span>
+        <picture>
+          <source srcset="assets/ss-editor.avif" type="image/avif">
+          <source srcset="assets/ss-editor.webp" type="image/webp">
+          <img src="assets/ss-editor.png" alt="Writing screen — A quiet Morning entry with Life and Weather tags" loading="eager" fetchpriority="high">
+        </picture>
+      </div>
+      <div class="phone phone-right">
+        <span class="phone-notch" aria-hidden="true"></span>
+        <picture>
+          <source srcset="assets/ss-mood.avif" type="image/avif">
+          <source srcset="assets/ss-mood.webp" type="image/webp">
+          <img src="assets/ss-mood.png" alt="Mood tracker — How are you? Awesome mood with affecting tags" loading="eager">
+        </picture>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     TRUST STRIP
+============================================================ -->
+<section class="trust-strip" aria-label="Trust facts">
+  <div class="wrap">
+    <span class="trust-item"><img src="icons/shield-check.svg" alt="">100% offline by default</span>
+    <span class="trust-item"><img src="icons/eye-closed.svg" alt="">Zero accounts, zero tracking</span>
+    <span class="trust-item"><img src="icons/lock.svg" alt="">AES-256 local encryption</span>
+    <span class="trust-item"><img src="icons/download.svg" alt="">You own the backup file</span>
+    <span class="trust-item"><img src="icons/notebook.svg" alt="">Built by a 2-person studio in Osaka</span>
+  </div>
+</section>
+
+<!-- ============================================================
+     SCREENSHOT SHOWCASE
+============================================================ -->
+<section class="section showcase reveal" data-screen-label="02 Showcase">
+  <div class="wrap">
+    <div class="section-header">
+      <span class="eyebrow">/ Inside the app</span>
+      <h2>Eight screens. One quiet habit.</h2>
+      <p>From your first PIN to your hundredth entry, every surface is built around one idea: this is yours, on this device, nobody else's.</p>
+    </div>
+
+    <div class="showcase-rail" role="list">
+      <article class="showcase-card" role="listitem">
+        <div class="showcase-phone"><picture><source srcset="assets/ss-editor.avif" type="image/avif"><source srcset="assets/ss-editor.webp" type="image/webp"><img src="assets/ss-editor.png" alt="Writing screen with title, tags and free-flow text" loading="lazy"></picture></div>
+        <div class="showcase-meta">
+          <span class="num">01 · WRITE</span>
+          <h4>Write privately</h4>
+          <p>An uncluttered editor that gets out of your way.</p>
+        </div>
+      </article>
+      <article class="showcase-card" role="listitem">
+        <div class="showcase-phone"><picture><source srcset="assets/ss-lock.avif" type="image/avif"><source srcset="assets/ss-lock.webp" type="image/webp"><img src="assets/ss-lock.png" alt="PIN, biometric and password unlock screen" loading="lazy"></picture></div>
+        <div class="showcase-meta">
+          <span class="num">02 · LOCK</span>
+          <h4>Lock your journal</h4>
+          <p>PIN, password, or fingerprint — your call.</p>
+        </div>
+      </article>
+      <article class="showcase-card" role="listitem">
+        <div class="showcase-phone"><picture><source srcset="assets/ss-mood.avif" type="image/avif"><source srcset="assets/ss-mood.webp" type="image/webp"><img src="assets/ss-mood.png" alt="Mood tracker with slider and affecting factors" loading="lazy"></picture></div>
+        <div class="showcase-meta">
+          <span class="num">03 · MOOD</span>
+          <h4>Understand your mood</h4>
+          <p>Five steps, a soft slider, and tags for what's affecting you.</p>
+        </div>
+      </article>
+      <article class="showcase-card" role="listitem">
+        <div class="showcase-phone"><picture><source srcset="assets/ss-prompts.avif" type="image/avif"><source srcset="assets/ss-prompts.webp" type="image/webp"><img src="assets/ss-prompts.png" alt="Browse prompts grid with categories and journeys" loading="lazy"></picture></div>
+        <div class="showcase-meta">
+          <span class="num">04 · PROMPTS</span>
+          <h4>Keep the habit</h4>
+          <p>Daily prompts, gentle reminders, and a streak that won't shame you.</p>
+        </div>
+      </article>
+      <article class="showcase-card" role="listitem">
+        <div class="showcase-phone"><picture><source srcset="assets/ss-search.avif" type="image/avif"><source srcset="assets/ss-search.webp" type="image/webp"><img src="assets/ss-search.png" alt="Search entries by keyword, weather, mood and attachments" loading="lazy"></picture></div>
+        <div class="showcase-meta">
+          <span class="num">05 · SEARCH</span>
+          <h4>Organize memories</h4>
+          <p>Folders, tags, and instant search across years of entries.</p>
+        </div>
+      </article>
+      <article class="showcase-card" role="listitem">
+        <div class="showcase-phone"><picture><source srcset="assets/ss-stickers.avif" type="image/avif"><source srcset="assets/ss-stickers.webp" type="image/webp"><img src="assets/ss-stickers.png" alt="Choose sticker sheet with heart, sun, plant and more" loading="lazy"></picture></div>
+        <div class="showcase-meta">
+          <span class="num">06 · CAPTURE</span>
+          <h4>Capture more than text</h4>
+          <p>Photos, voice notes, and small stickers when words aren't enough.</p>
+        </div>
+      </article>
+      <article class="showcase-card" role="listitem">
+        <div class="showcase-phone"><picture><source srcset="assets/ss-backup.avif" type="image/avif"><source srcset="assets/ss-backup.webp" type="image/webp"><img src="assets/ss-backup.png" alt="Export backup sheet with Share Backup and Save to Device" loading="lazy"></picture></div>
+        <div class="showcase-meta">
+          <span class="num">07 · BACKUP</span>
+          <h4>Stay in control</h4>
+          <p>Export an encrypted .gamu file. Restore it when you need to.</p>
+        </div>
+      </article>
+      <article class="showcase-card" role="listitem">
+        <div class="showcase-phone"><picture><source srcset="assets/ss-light.avif" type="image/avif"><source srcset="assets/ss-light.webp" type="image/webp"><img src="assets/ss-light.png" alt="Same editor in light mode for daytime writing" loading="lazy"></picture></div>
+        <div class="showcase-meta">
+          <span class="num">08 · THEME</span>
+          <h4>Write any time</h4>
+          <p>OLED-friendly black at night. Warm paper by day.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FEATURE BLOCKS
+============================================================ -->
+<section class="section features" id="features" data-screen-label="03 Features">
+  <div class="wrap">
+    <div class="section-header">
+      <span class="eyebrow">/ The whole app</span>
+      <h2>Built like a notebook, not a feed.</h2>
+      <p>No streak guilt, no friend requests, no features you didn't ask for. Just the parts of a journal you actually use.</p>
+    </div>
+
+    <div class="feature-grid">
+
+      <article class="feature reveal">
+        <div class="feat-copy">
+          <span class="feat-tag">01 · Write</span>
+          <h3>A blank page that respects your time.</h3>
+          <p>Open the app, pick up where you left off. Markdown-friendly, with tags, dates, and a quiet word counter. No distracting "AI suggestions," no banner ads in your thoughts.</p>
+          <ul class="feat-bullets">
+            <li>Sentence-case titles with optional stickers</li>
+            <li>Inline tags like <em>Life</em>, <em>Weather</em>, <em>Health</em></li>
+            <li>Word, character and read-time counters</li>
+            <li>Per-entry calendar navigation</li>
+          </ul>
+        </div>
+        <div class="feat-shot"><picture><source srcset="assets/ss-editor.avif" type="image/avif"><source srcset="assets/ss-editor.webp" type="image/webp"><img src="assets/ss-editor.png" alt="Editor with formatted entry and inline tags" loading="lazy"></picture></div>
+      </article>
+
+      <article class="feature flip reverse reveal">
+        <div class="feat-copy">
+          <span class="feat-tag">02 · Lock</span>
+          <h3>Protected before anyone can read it.</h3>
+          <p>Choose how you unlock: a PIN, a password, or your fingerprint and face. The whole journal is encrypted at rest with AES-256 — locking the screen also locks the data.</p>
+          <ul class="feat-bullets">
+            <li>PIN, password or biometric unlock</li>
+            <li>Auto-lock on app background</li>
+            <li>No "recovery email" because no account exists</li>
+            <li>Hidden app preview when you switch apps</li>
+          </ul>
+        </div>
+        <div class="feat-shot"><picture><source srcset="assets/ss-lock.avif" type="image/avif"><source srcset="assets/ss-lock.webp" type="image/webp"><img src="assets/ss-lock.png" alt="Welcome Back PIN screen with biometric option" loading="lazy"></picture></div>
+      </article>
+
+      <article class="feature reveal">
+        <div class="feat-copy">
+          <span class="feat-tag">03 · Mood</span>
+          <h3>Track how you feel over time.</h3>
+          <p>A five-step slider from <em>Rough</em> to <em>Awesome</em>, with optional tags for what's affecting you today. Patterns surface gently in the history view — no leaderboards, no scores.</p>
+          <ul class="feat-bullets">
+            <li>One-tap daily mood entry</li>
+            <li>Affecting-factor tags: Work, Family, Sleep, Weather…</li>
+            <li>Calendar heatmap and weekly average</li>
+            <li>Mood + writing combine into one entry</li>
+          </ul>
+        </div>
+        <div class="feat-shot"><picture><source srcset="assets/ss-mood.avif" type="image/avif"><source srcset="assets/ss-mood.webp" type="image/webp"><img src="assets/ss-mood.png" alt="How are you mood slider on Awesome with affecting tags" loading="lazy"></picture></div>
+      </article>
+
+      <article class="feature flip reverse reveal">
+        <div class="feat-copy">
+          <span class="feat-tag">04 · Prompts</span>
+          <h3>Never start from a blank page.</h3>
+          <p>Eight built-in prompt categories — Gratitude, Self-Reflection, Creativity, Goals — plus longer themed Journeys. Or set a daily reminder and pick when it appears.</p>
+          <ul class="feat-bullets">
+            <li>200+ curated prompts across 8 categories</li>
+            <li>Themed multi-day Journeys</li>
+            <li>Custom reminder times</li>
+            <li>Streaks that count, not pressure</li>
+          </ul>
+        </div>
+        <div class="feat-shot"><picture><source srcset="assets/ss-prompts.avif" type="image/avif"><source srcset="assets/ss-prompts.webp" type="image/webp"><img src="assets/ss-prompts.png" alt="Browse Prompts categories grid" loading="lazy"></picture></div>
+      </article>
+
+      <article class="feature reveal">
+        <div class="feat-copy">
+          <span class="feat-tag">05 · Search</span>
+          <h3>Find old thoughts and memories quickly.</h3>
+          <p>Type a word — "morning," "Tokyo," "mom" — and Gamu Journal scans the entries on your device only. Filter by weather, mood, date range, or attachments.</p>
+          <ul class="feat-bullets">
+            <li>Full-text local search</li>
+            <li>Filter by date, mood, weather, tags, attachments</li>
+            <li>Folders for chapters, trips, projects</li>
+            <li>Pinned and favorited entries</li>
+          </ul>
+        </div>
+        <div class="feat-shot"><picture><source srcset="assets/ss-search.avif" type="image/avif"><source srcset="assets/ss-search.webp" type="image/webp"><img src="assets/ss-search.png" alt="Search results for Morning with Weather filter active" loading="lazy"></picture></div>
+      </article>
+
+      <article class="feature flip reverse reveal">
+        <div class="feat-copy">
+          <span class="feat-tag">06 · Capture</span>
+          <h3>Capture more than text.</h3>
+          <p>Attach a photo, record a voice note, or drop a small sticker into your entry. Everything lives inside the encrypted journal file — never uploaded, never indexed by anyone else.</p>
+          <ul class="feat-bullets">
+            <li>Photo and image attachments</li>
+            <li>Voice memos for you journal entries</li>
+            <li>Hand-drawn stickers (heart, sun, plant…)</li>
+            <li>Stored inside the encrypted .gamu file</li>
+          </ul>
+        </div>
+        <div class="feat-shot"><picture><source srcset="assets/ss-stickers.avif" type="image/avif"><source srcset="assets/ss-stickers.webp" type="image/webp"><img src="assets/ss-stickers.png" alt="Sticker chooser with heart, star, sun and more" loading="lazy"></picture></div>
+      </article>
+
+      <article class="feature reveal">
+        <div class="feat-copy">
+          <span class="feat-tag">07 · Backup</span>
+          <h3>Keep backups under your control.</h3>
+          <p>Export the whole journal as a single encrypted <code>.gamu</code> file. Send it to your own cloud drive, your laptop, or an external SD card — wherever <em>you</em> trust. Restore takes one tap.</p>
+          <ul class="feat-bullets">
+            <li>One-tap encrypted export</li>
+            <li>Save to device or share to any app</li>
+            <li>Import on a new phone in seconds</li>
+            <li>No backup server, ever — there isn't one</li>
+          </ul>
+        </div>
+        <div class="feat-shot"><picture><source srcset="assets/ss-backup.avif" type="image/avif"><source srcset="assets/ss-backup.webp" type="image/webp"><img src="assets/ss-backup.png" alt="Export Backup sheet with Share and Save to Device options" loading="lazy"></picture></div>
+      </article>
+
+      <article class="feature flip reverse reveal">
+        <div class="feat-copy">
+          <span class="feat-tag">08 · Theme</span>
+          <h3>Comfortable private writing, any time.</h3>
+          <p>A true-black OLED theme for late-night entries, a warm paper theme for mornings. Both with the same tag pills, the same legibility, the same calm.</p>
+          <ul class="feat-bullets">
+            <li>OLED-true black for late nights</li>
+            <li>Warm paper theme for daytime</li>
+            <li>Adjustable type size and line height</li>
+            <li>Follows your system theme automatically</li>
+          </ul>
+        </div>
+        <div class="feat-shot"><picture><source srcset="assets/ss-dark.avif" type="image/avif"><source srcset="assets/ss-dark.webp" type="image/webp"><img src="assets/ss-dark.png" alt="Dark mode editor — true black background" loading="lazy"></picture></div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PRIVACY SECTION
+============================================================ -->
+<section class="section privacy reveal" id="privacy" data-screen-label="04 Privacy">
+  <div class="wrap">
+    <div class="section-header on-ink">
+      <span class="eyebrow on-ink">/ The deal</span>
+      <h2>Privacy you can <em>understand</em>.</h2>
+      <p>No legal-page novella. No "industry-leading security" badges. Here is what actually happens to your words — in four short sentences.</p>
+    </div>
+
+    <div class="privacy-grid">
+      <article class="priv-card">
+        <div class="priv-ic"><img src="icons/eye-closed.svg" alt=""></div>
+        <span class="label">01 · No account</span>
+        <h4>You don't sign up.</h4>
+        <p>There is no email, no username, no "Sign in with Google." The app opens. You write. That's it.</p>
+      </article>
+      <article class="priv-card">
+        <div class="priv-ic"><img src="icons/cloud.svg" alt=""></div>
+        <span class="label">02 · No cloud sync</span>
+        <h4>Your entries never leave your phone.</h4>
+        <p>We don't run a server for your journal because we don't have one. The data lives in the app's encrypted storage on your device.</p>
+      </article>
+      <article class="priv-card">
+        <div class="priv-ic"><img src="icons/lock.svg" alt=""></div>
+        <span class="label">03 · Local protection</span>
+        <h4>Lock it with PIN, password or biometrics.</h4>
+        <p>The journal is encrypted at rest. Unlocking it requires whatever you set — and only on this device, in this app.</p>
+      </article>
+      <article class="priv-card">
+        <div class="priv-ic"><img src="icons/download.svg" alt=""></div>
+        <span class="label">04 · You own backups</span>
+        <h4>Backups are a file, not a service.</h4>
+        <p>Export an encrypted <code>.gamu</code> file. Put it wherever you want — or nowhere. Import it onto a new phone in seconds.</p>
+      </article>
+    </div>
+
+    <p class="privacy-note">
+      <strong>What we don't claim:</strong>
+      end-to-end encryption (there's no "ends" — there's just your device), third-party audits, or zero-knowledge certifications. If we don't promise it on this page, we haven't done it. We'd rather under-promise than perform security theater.
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================
+     PRICING
+============================================================ -->
+<section class="section pricing" id="pricing" data-screen-label="05 Pricing">
+  <div class="wrap">
+    <div class="section-header">
+      <span class="eyebrow">/ Pricing</span>
+      <h2>Simple pricing that respects trust.</h2>
+      <p>Free is fully usable forever. Pro is a one-time purchase — not a subscription, not a "free trial that auto-renews." Pay once, keep it.</p>
+    </div>
+
+    <div class="price-grid">
+
+      <article class="price-card">
+        <div class="price-head">
+          <span class="tier">Free</span>
+          <h3>Gamu Journal</h3>
+          <div class="price">$0<small>forever</small></div>
+          <span class="note">No credit card · No account</span>
+        </div>
+        <ul>
+          <li>Unlimited entries</li>
+          <li>PIN, password, biometric lock</li>
+          <li>Daily mood tracker</li>
+          <li>Tags and folders</li>
+          <li>50+ daily prompts</li>
+          <li>Local search</li>
+          <li>OLED dark + paper themes</li>
+        </ul>
+        <div class="price-foot">
+          <a class="btn-full" href="https://play.google.com/store/apps/details?id=com.gamublocks.gamujournal" data-track="price_free">Install free</a>
+          <small>Available on Google Play and the App Store.</small>
+        </div>
+      </article>
+
+      <article class="price-card pro">
+        <div class="price-head">
+          <span class="tier">Pro · One-time</span>
+          <h3>Gamu Journal Pro</h3>
+          <div class="price">Price to confirm<small>one-time purchase</small></div>
+          <span class="note">No subscription · No renewals</span>
+        </div>
+        <ul>
+          <li>Everything in Free</li>
+          <li>200+ curated prompts &amp; multi-day Journeys</li>
+          <li>Voice notes and photo attachments</li>
+          <li>Encrypted .gamu exports &amp; one-tap restore</li>
+          <li>Custom reminder times</li>
+          <li>Hand-drawn sticker pack</li>
+          <li>Lifetime updates on this device</li>
+        </ul>
+        <div class="price-foot">
+          <a class="btn-full solid" href="https://play.google.com/store/apps/details?id=com.gamublocks.gamujournal" data-track="price_pro">Unlock Pro</a>
+          <small>You'll see the exact local price in the store before any payment.</small>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FAQ
+============================================================ -->
+<section class="section faq" id="faq" data-screen-label="06 FAQ">
+  <div class="wrap">
+    <div class="section-header">
+      <span class="eyebrow">/ Honest answers</span>
+      <h2>Questions, answered like a friend would.</h2>
+    </div>
+
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Does Gamu Journal need an account?
+          <span class="chev" aria-hidden="true"><img src="icons/chevron.svg" alt=""></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">
+          No. There is no sign-up, no email, no username. You install the app and start writing. We don't have a user database because we don't have any users in the database sense.
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Does my journal sync to the cloud?
+          <span class="chev" aria-hidden="true"><img src="icons/chevron.svg" alt=""></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">
+          Not by us. Gamu Journal has no cloud sync built in — your entries stay on the device they're written on. If you want a copy somewhere else, you can export an encrypted backup file and put it wherever you trust (Drive, Dropbox, an SD card, a USB stick).
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          How is my journal protected?
+          <span class="chev" aria-hidden="true"><img src="icons/chevron.svg" alt=""></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">
+          The journal is encrypted at rest using AES-256 with a key derived from your PIN, password, or device biometric. The app auto-locks when backgrounded and never shows your entries in the recent-apps preview.
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          What happens if I lose my phone?
+          <span class="chev" aria-hidden="true"><img src="icons/chevron.svg" alt=""></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">
+          If you haven't exported a backup, your entries are gone with the device. This is the trade-off of a strictly-local design — there's no server for us to restore from. We strongly recommend exporting an encrypted <code>.gamu</code> file periodically and storing it somewhere you trust.
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Is there a subscription?
+          <span class="chev" aria-hidden="true"><img src="icons/chevron.svg" alt=""></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">
+          No. Free is free forever, and Pro is a one-time purchase through the app stores. No renewals, no free trials that quietly start charging you, no "Pro+." Buy once, keep it.
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Is there an iPhone version?
+          <span class="chev" aria-hidden="true"><img src="icons/chevron.svg" alt=""></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">
+          Yes. Gamu Journal is available on the App Store. Your journal still stays on the device where you write it unless you choose to export a backup yourself.
+        </div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer class="site-footer" data-screen-label="07 Footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="brand">
+          <span class="brand-mark"><img src="assets/logo.png" alt=""></span>
+          <span>Gamu Journal</span>
+        </div>
+        <p>A private offline diary and mood tracker from Gamu Blocks — a two-person studio in Osaka, Japan.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#privacy">Privacy</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Studio</h4>
+        <ul>
+          <li><a href="https://gamublocks.com">Gamu Blocks</a></li>
+          <li><a href="https://gamublocks.com">Gamu Neko · Focus timer</a></li>
+          <li><a href="https://gamublocks.com">Gronu · Stopwatch</a></li>
+          <li><a href="https://gamublocks.com">Gnit · Knit counter</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Get the app</h4>
+        <ul>
+          <li><a href="https://play.google.com/store/apps/details?id=com.gamublocks.gamujournal" data-track="footer_play">Google Play</a></li>
+          <li><a href="https://apps.apple.com/us/app/gamu-journal-private-diary/id6759192253" data-track="footer_apple">App Store</a></li>
+          <li><a href="mailto:hi@gamublocks.com">hi@gamublocks.com</a></li>
+          <li><a href="mailto:hi@gamublocks.com?subject=Gamu%20Journal%20press%20kit">Press kit</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="copy">© 2026 Gamu Blocks · Osaka, JP</span>
+      <span>
+        <span>Privacy policy</span>
+        &nbsp;·&nbsp;
+        <span>Terms</span>
+        &nbsp;·&nbsp;
+        <span>Open source notices</span>
+      </span>
+      <small class="credits">
+        Solar Icon Set by 480 Design, licensed under
+        <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
+        Built with care, not analytics. Privacy-friendly metrics only.
+      </small>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     STICKY MOBILE CTA
+============================================================ -->
+<aside class="sticky-cta" aria-label="Install Gamu Journal">
+  <span class="small-mark"><img src="assets/logo.png" alt=""></span>
+  <div class="copy">
+    <strong>Gamu Journal — Free on Google Play</strong>
+    <span>Offline · No account · No subscription</span>
+  </div>
+  <a class="btn-mini" href="https://play.google.com/store/apps/details?id=com.gamublocks.gamujournal" data-track="sticky_get">
+    Install
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </a>
+</aside>
+
+<script src="script.js"></script>
+
+</body>
+</html>
