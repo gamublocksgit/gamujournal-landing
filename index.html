@@ -23,7 +23,7 @@
 <link rel="stylesheet" href="styles.css">
 
 <!-- Structured data: SoftwareApplication -->
-<script type="application/ld+json">
+<script type="application/ld+json" id="app-jsonld">
 {
   "@context": "https://schema.org",
   "@type": "MobileApplication",
@@ -41,7 +41,7 @@
   "publisher": { "@type": "Organization", "name": "Gamu Blocks", "url": "https://gamublocks.com" }
 }
 </script>
-<script type="application/ld+json">
+<script type="application/ld+json" id="faq-jsonld">
 {
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -91,24 +91,30 @@
 </head>
 <body>
 
-<a class="skip-link" href="#main">Skip to content</a>
+<a class="skip-link" href="#main" data-i18n="a11y.skip">Skip to content</a>
 
 <!-- ============================================================
      NAV
 ============================================================ -->
 <header class="nav" data-screen-label="00 Nav">
   <div class="wrap">
-    <a class="brand" href="#top" aria-label="Gamu Journal home">
+    <a class="brand" href="#top" aria-label="Gamu Journal home" data-i18n-attr="aria-label:a11y.brandHome">
       <span class="brand-mark"><img src="assets/logo.png" alt=""></span>
       <span>Gamu Journal</span>
     </a>
-    <ul class="nav-links" aria-label="Primary">
+    <ul class="nav-links" aria-label="Primary" data-i18n-attr="aria-label:a11y.primaryNav">
       <li><a href="#features">Features</a></li>
       <li><a href="#privacy">Privacy</a></li>
       <li><a href="#pricing">Pricing</a></li>
       <li><a href="#faq">FAQ</a></li>
     </ul>
-    <a class="nav-cta" href="#get" data-track="nav_get">Get the app</a>
+    <div class="nav-actions">
+      <label class="lang-label">
+        <span class="sr-only" data-i18n="a11y.language">Language</span>
+        <select class="lang-switcher" aria-label="Language" data-i18n-attr="aria-label:a11y.language"></select>
+      </label>
+      <a class="nav-cta" href="#get" data-track="nav_get">Get the app</a>
+    </div>
   </div>
 </header>
 
@@ -199,7 +205,7 @@
 <!-- ============================================================
      TRUST STRIP
 ============================================================ -->
-<section class="trust-strip" aria-label="Trust facts">
+<section class="trust-strip" aria-label="Trust facts" data-i18n-attr="aria-label:a11y.trustFacts">
   <div class="wrap">
     <span class="trust-item"><img src="icons/shield-check.svg" alt="">100% offline by default</span>
     <span class="trust-item"><img src="icons/eye-closed.svg" alt="">Zero accounts, zero tracking</span>
@@ -351,9 +357,9 @@
         <div class="feat-copy">
           <span class="feat-tag">04 · Prompts</span>
           <h3>Never start from a blank page.</h3>
-          <p>Eight built-in prompt categories — Gratitude, Self-Reflection, Creativity, Goals — plus longer themed Journeys. Or set a daily reminder and pick when it appears.</p>
+          <p>Multiple built-in prompt categories — Gratitude, Self-Reflection, Creativity, Goals — plus longer themed Journeys. Or set a daily reminder and pick when it appears.</p>
           <ul class="feat-bullets">
-            <li>200+ curated prompts across 8 categories</li>
+            <li>200+ curated prompts across several categories</li>
             <li>Themed multi-day Journeys</li>
             <li>Custom reminder times</li>
             <li>Streaks that count, not pressure</li>
@@ -466,7 +472,7 @@
 
     <p class="privacy-note">
       <strong>What we don't claim:</strong>
-      end-to-end encryption (there's no "ends" — there's just your device), third-party audits, or zero-knowledge certifications. If we don't promise it on this page, we haven't done it. We'd rather under-promise than perform security theater.
+      end-to-end encryption (there's no "ends" — there's just your device), third-party audits, or zero-knowledge certifications.
     </p>
   </div>
 </section>
@@ -621,7 +627,7 @@
           <span class="brand-mark"><img src="assets/logo.png" alt=""></span>
           <span>Gamu Journal</span>
         </div>
-        <p>A private offline diary and mood tracker from Gamu Blocks — a two-person studio in Osaka, Japan.</p>
+        <p>A private offline diary and mood tracker from Gamu Blocks.</p>
       </div>
       <div class="footer-col">
         <h4>Product</h4>
@@ -636,9 +642,10 @@
         <h4>Studio</h4>
         <ul>
           <li><a href="https://gamublocks.com">Gamu Blocks</a></li>
-          <li><a href="https://gamublocks.com">Gamu Neko · Focus timer</a></li>
-          <li><a href="https://gamublocks.com">Gronu · Stopwatch</a></li>
-          <li><a href="https://gamublocks.com">Gnit · Knit counter</a></li>
+          <li><a href="http://gamubaby.gamublocks.com/">Gamu Baby · Private baby tracker</a></li>
+          <li><a href="https://play.google.com/store/apps/details?id=com.gamublocks.gamuneko">Gamu Neko · Focus timer</a></li>
+          <li><a href="https://play.google.com/store/apps/details?id=com.gamublocks.gronu">Gronu · Stopwatch</a></li>
+          <li><a href="https://play.google.com/store/apps/details?id=com.gamublocks.gnit">Gnit · Knit counter</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -646,20 +653,11 @@
         <ul>
           <li><a href="https://play.google.com/store/apps/details?id=com.gamublocks.gamujournal" data-track="footer_play">Google Play</a></li>
           <li><a href="https://apps.apple.com/us/app/gamu-journal-private-diary/id6759192253" data-track="footer_apple">App Store</a></li>
-          <li><a href="mailto:hi@gamublocks.com">hi@gamublocks.com</a></li>
-          <li><a href="mailto:hi@gamublocks.com?subject=Gamu%20Journal%20press%20kit">Press kit</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <span class="copy">© 2026 Gamu Blocks · Osaka, JP</span>
-      <span>
-        <span>Privacy policy</span>
-        &nbsp;·&nbsp;
-        <span>Terms</span>
-        &nbsp;·&nbsp;
-        <span>Open source notices</span>
-      </span>
+      <span class="copy">© 2026 Gamu Blocks</span>
       <small class="credits">
         Solar Icon Set by 480 Design, licensed under
         <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
@@ -672,7 +670,7 @@
 <!-- ============================================================
      STICKY MOBILE CTA
 ============================================================ -->
-<aside class="sticky-cta" aria-label="Install Gamu Journal">
+<aside class="sticky-cta" aria-label="Install Gamu Journal" data-i18n-attr="aria-label:a11y.stickyInstall">
   <span class="small-mark"><img src="assets/logo.png" alt=""></span>
   <div class="copy">
     <strong>Gamu Journal — Free on Google Play</strong>
@@ -686,6 +684,7 @@
   </a>
 </aside>
 
+<script src="copy.js"></script>
 <script src="script.js"></script>
 
 </body>
