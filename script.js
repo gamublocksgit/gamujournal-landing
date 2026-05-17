@@ -51,10 +51,6 @@
     const params = new URLSearchParams(window.location.search);
     const fromQuery = normalizeLocale(params.get("lang"));
     if (fromQuery) return fromQuery;
-    try {
-      const fromStorage = normalizeLocale(localStorage.getItem(LANG_KEY));
-      if (fromStorage) return fromStorage;
-    } catch (_) {}
     const browserLocales = navigator.languages && navigator.languages.length
       ? navigator.languages
       : [navigator.language];
@@ -62,6 +58,10 @@
       const resolved = normalizeLocale(candidate);
       if (resolved) return resolved;
     }
+    try {
+      const fromStorage = normalizeLocale(localStorage.getItem(LANG_KEY));
+      if (fromStorage) return fromStorage;
+    } catch (_) {}
     return "en";
   };
 
@@ -155,8 +155,9 @@
       languages.forEach((lang) => {
         const option = document.createElement("option");
         option.value = lang.key;
-        option.textContent = lang.label;
+        option.textContent = lang.name || lang.label;
         option.title = lang.name;
+        option.lang = lang.htmlLang || lang.key;
         select.appendChild(option);
       });
     }

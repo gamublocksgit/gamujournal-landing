@@ -4,13 +4,13 @@
   "use strict";
 
   const LANGUAGES = [
-    { key: "en", label: "EN", name: "English", htmlLang: "en" },
-    { key: "ja", label: "JA", name: "日本語", htmlLang: "ja" },
-    { key: "pt_BR", label: "PT-BR", name: "Português (Brasil)", htmlLang: "pt-BR" },
-    { key: "ru", label: "RU", name: "Русский", htmlLang: "ru" },
-    { key: "fr", label: "FR", name: "Français", htmlLang: "fr" },
-    { key: "es", label: "ES", name: "Español", htmlLang: "es" },
-    { key: "ko", label: "KO", name: "한국어", htmlLang: "ko" },
+    { key: "en", label: "English", name: "English", htmlLang: "en" },
+    { key: "ja", label: "日本語", name: "日本語", htmlLang: "ja" },
+    { key: "pt_BR", label: "Português (Brasil)", name: "Português (Brasil)", htmlLang: "pt-BR" },
+    { key: "ru", label: "Русский", name: "Русский", htmlLang: "ru" },
+    { key: "fr", label: "Français", name: "Français", htmlLang: "fr" },
+    { key: "es", label: "Español", name: "Español", htmlLang: "es" },
+    { key: "ko", label: "한국어", name: "한국어", htmlLang: "ko" },
   ];
 
   const baseAssets = {
