@@ -1,0 +1,62 @@
+---
+import { SITE_URL, LOCALES, DEFAULT_LOCALE, localeUrl, localePath, type LocaleKey } from "../consts";
+import JsonLd from "../components/JsonLd.astro";
+import "../styles/tokens.css";
+import "../styles/styles.css";
+
+interface Props {
+  locale: LocaleKey;
+  copy: any;
+}
+
+const { locale, copy } = Astro.props;
+const localeMeta = LOCALES.find((l) => l.key === locale)!;
+const htmlLang = localeMeta.htmlLang;
+const canonical = localeUrl(locale);
+const ogImage = `${SITE_URL}/assets/ss-editor.png`;
+---
+
+<!doctype html>
+<html lang={htmlLang}>
+<head>
+<meta charset="utf-8" />
+<title>{copy.meta.title}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="description" content={copy.meta.description} />
+<meta name="theme-color" content="#000000" />
+
+<link rel="canonical" href={canonical} />
+
+{LOCALES.map((l) => (
+  <link rel="alternate" hreflang={l.htmlLang} href={`${SITE_URL}${localePath(l.key)}`} />
+))}
+<link rel="alternate" hreflang="x-default" href={`${SITE_URL}${localePath(DEFAULT_LOCALE)}`} />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content={copy.meta.ogTitle} />
+<meta property="og:description" content={copy.meta.ogDescription} />
+<meta property="og:url" content={canonical} />
+<meta property="og:site_name" content="Gamu Journal" />
+<meta property="og:image" content={ogImage} />
+<meta property="og:locale" content={htmlLang.replace("-", "_")} />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={copy.meta.ogTitle} />
+<meta name="twitter:description" content={copy.meta.ogDescription} />
+<meta name="twitter:image" content={ogImage} />
+
+<link rel="icon" href="/assets/logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;900&family=Geist+Mono:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap"
+/>
+
+<JsonLd locale={locale} copy={copy} />
+</head>
+<body>
+<a class="skip-link" href="#main">{copy.a11y.skip}</a>
+<slot />
+</body>
+</html>

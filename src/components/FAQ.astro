@@ -1,0 +1,27 @@
+---
+interface Props {
+  copy: any;
+}
+const { copy } = Astro.props;
+---
+
+<section class="section faq" id="faq" data-screen-label="06 FAQ">
+  <div class="wrap">
+    <div class="section-header">
+      <span class="eyebrow">{copy.faqHeader.eyebrow}</span>
+      <h2>{copy.faqHeader.h2}</h2>
+    </div>
+
+    <div class="faq-list">
+      {copy.faq.map(([q, a]: [string, string]) => (
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            {q}
+            <span class="chev" aria-hidden="true"><img src="/icons/chevron.svg" alt="" /></span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner" set:html={a} /></div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

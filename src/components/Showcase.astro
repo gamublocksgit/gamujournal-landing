@@ -1,0 +1,36 @@
+---
+interface Props {
+  copy: any;
+}
+const { copy } = Astro.props;
+const showcaseImages = ["editor", "lock", "mood", "prompts", "search", "stickers", "backup", "light"];
+---
+
+<section class="section showcase reveal" data-screen-label="02 Showcase">
+  <div class="wrap">
+    <div class="section-header">
+      <span class="eyebrow">{copy.showcase.eyebrow}</span>
+      <h2>{copy.showcase.h2}</h2>
+      <p>{copy.showcase.p}</p>
+    </div>
+
+    <div class="showcase-rail" role="list">
+      {copy.showcase.cards.map((card: [string, string, string], i: number) => (
+        <article class="showcase-card" role="listitem">
+          <div class="showcase-phone">
+            <picture>
+              <source srcset={`/assets/ss-${showcaseImages[i]}.avif`} type="image/avif" />
+              <source srcset={`/assets/ss-${showcaseImages[i]}.webp`} type="image/webp" />
+              <img src={`/assets/ss-${showcaseImages[i]}.png`} alt={copy.assets.showcaseAlts[i]} loading="lazy" />
+            </picture>
+          </div>
+          <div class="showcase-meta">
+            <span class="num">{card[0]}</span>
+            <h4>{card[1]}</h4>
+            <p>{card[2]}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

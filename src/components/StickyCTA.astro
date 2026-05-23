@@ -1,0 +1,22 @@
+---
+import { STORE_URLS } from "../consts";
+
+interface Props {
+  copy: any;
+}
+const { copy } = Astro.props;
+---
+
+<aside class="sticky-cta" aria-label={copy.a11y.stickyInstall}>
+  <span class="small-mark"><img src="/assets/logo.png" alt="" /></span>
+  <div class="copy">
+    <strong>{copy.sticky.title}</strong>
+    <span>{copy.sticky.sub}</span>
+  </div>
+  <a class="btn-mini" href={STORE_URLS.googlePlay} data-track="sticky_get">
+    {copy.sticky.cta}
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+  </a>
+</aside>

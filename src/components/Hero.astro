@@ -1,0 +1,79 @@
+---
+import { STORE_URLS } from "../consts";
+
+interface Props {
+  copy: any;
+}
+const { copy } = Astro.props;
+const heroPhones = [
+  { name: "lock", className: "phone-left", alt: copy.hero.phoneAlts[0], priority: false },
+  { name: "editor", className: "phone-center", alt: copy.hero.phoneAlts[1], priority: true },
+  { name: "mood", className: "phone-right", alt: copy.hero.phoneAlts[2], priority: false },
+];
+---
+
+<section class="hero" id="top" data-screen-label="01 Hero">
+  <div class="hero-grid-bg" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="hero-copy">
+      <h1>{copy.hero.h1}</h1>
+      <p class="hero-sub">{copy.hero.sub}</p>
+
+      <div class="hero-chips" role="list" aria-label={copy.a11y.heroChips}>
+        <span class="chip" role="listitem"><img src="/icons/cloud.svg" alt="" />{copy.hero.chips[0]}</span>
+        <span class="chip" role="listitem"><img src="/icons/eye-closed.svg" alt="" />{copy.hero.chips[1]}</span>
+        <span class="chip" role="listitem"><img src="/icons/shield-check.svg" alt="" />{copy.hero.chips[2]}</span>
+        <span class="chip" role="listitem"><img src="/icons/key.svg" alt="" />{copy.hero.chips[3]}</span>
+      </div>
+
+      <div class="hero-ctas" id="get">
+        <a class="store-link" href={STORE_URLS.googlePlay} aria-label={copy.a11y.googlePlay} data-track="hero_play" data-store-badge="google_play">
+          <img src="/assets/google-play-badge.png" alt={copy.a11y.googlePlayBadge} width="239" height="71" />
+        </a>
+        <a class="store-link" href={STORE_URLS.appStore} aria-label={copy.a11y.appStore} data-track="hero_apple" data-store-badge="app_store">
+          <img src="/assets/app-store-badge.svg" alt={copy.a11y.appStoreBadge} width="180" height="54" />
+        </a>
+      </div>
+
+      <div class="center">
+        <a class="see-privacy" href="#privacy" data-track="hero_see_privacy">
+          {copy.hero.seePrivacy}
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 4v16M4 12l8 8 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </a>
+      </div>
+
+      <p class="hero-micro" aria-label={copy.a11y.installTerms}>
+        <span>{copy.hero.micro[0]}</span>
+        <span class="sep">·</span>
+        <span>{copy.hero.micro[1]}</span>
+        <span class="sep">·</span>
+        <span>{copy.hero.micro[2]}</span>
+      </p>
+    </div>
+
+    <div class="hero-phones" aria-label={copy.a11y.heroPreview}>
+      <span class="hero-tag tl" set:html={copy.hero.tags[0]} />
+      <span class="hero-tag tr" set:html={copy.hero.tags[1]} />
+      <span class="hero-tag bl" set:html={copy.hero.tags[2]} />
+      <span class="hero-tag br" set:html={copy.hero.tags[3]} />
+
+      {heroPhones.map((p) => (
+        <div class={`phone ${p.className}`}>
+          <span class="phone-notch" aria-hidden="true"></span>
+          <picture>
+            <source srcset={`/assets/ss-${p.name}.avif`} type="image/avif" />
+            <source srcset={`/assets/ss-${p.name}.webp`} type="image/webp" />
+            <img
+              src={`/assets/ss-${p.name}.png`}
+              alt={p.alt}
+              loading="eager"
+              {...(p.priority ? { fetchpriority: "high" } : {})}
+            />
+          </picture>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

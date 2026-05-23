@@ -1,0 +1,53 @@
+---
+import { STORE_URLS, PARENT_BRAND_URL } from "../consts";
+
+interface Props {
+  copy: any;
+}
+const { copy } = Astro.props;
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer" data-screen-label="07 Footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="brand">
+          <span class="brand-mark"><img src="/assets/logo.png" alt="" /></span>
+          <span>Gamu Journal</span>
+        </div>
+        <p>{copy.footer.tagline}</p>
+      </div>
+      <div class="footer-col">
+        <h4>{copy.footer.product}</h4>
+        <ul>
+          <li><a href="#features">{copy.nav[0]}</a></li>
+          <li><a href="#privacy">{copy.nav[1]}</a></li>
+          <li><a href="#pricing">{copy.nav[2]}</a></li>
+          <li><a href="#faq">{copy.nav[3]}</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>{copy.footer.studio}</h4>
+        <ul>
+          <li><a href={PARENT_BRAND_URL}>Gamu Blocks</a></li>
+          <li><a href="https://gamubaby.gamublocks.com/">{copy.footer.baby}</a></li>
+          <li><a href="https://play.google.com/store/apps/details?id=com.gamublocks.gamuneko">{copy.footer.neko}</a></li>
+          <li><a href="https://play.google.com/store/apps/details?id=com.gamublocks.gronu">{copy.footer.gronu}</a></li>
+          <li><a href="https://play.google.com/store/apps/details?id=com.gamublocks.gnit">{copy.footer.gnit}</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>{copy.footer.get}</h4>
+        <ul>
+          <li><a href={STORE_URLS.googlePlay} data-track="footer_play">Google Play</a></li>
+          <li><a href={STORE_URLS.appStore} data-track="footer_apple">App Store</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="copy">© {year} Gamu Blocks</span>
+      <small class="credits" set:html={copy.footer.credits} />
+    </div>
+  </div>
+</footer>

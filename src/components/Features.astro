@@ -1,0 +1,39 @@
+---
+interface Props {
+  copy: any;
+}
+const { copy } = Astro.props;
+const featureImages = ["editor", "lock", "mood", "prompts", "search", "stickers", "backup", "dark"];
+---
+
+<section class="section features" id="features" data-screen-label="03 Features">
+  <div class="wrap">
+    <div class="section-header">
+      <span class="eyebrow">{copy.features.eyebrow}</span>
+      <h2>{copy.features.h2}</h2>
+      <p>{copy.features.p}</p>
+    </div>
+
+    <div class="feature-grid">
+      {copy.features.cards.map((card: any, i: number) => (
+        <article class={`feature reveal${i % 2 === 1 ? " flip reverse" : ""}`}>
+          <div class="feat-copy">
+            <span class="feat-tag">{card.tag}</span>
+            <h3>{card.h3}</h3>
+            <p>{card.p}</p>
+            <ul class="feat-bullets">
+              {card.bullets.map((b: string) => <li>{b}</li>)}
+            </ul>
+          </div>
+          <div class="feat-shot">
+            <picture>
+              <source srcset={`/assets/ss-${featureImages[i]}.avif`} type="image/avif" />
+              <source srcset={`/assets/ss-${featureImages[i]}.webp`} type="image/webp" />
+              <img src={`/assets/ss-${featureImages[i]}.png`} alt={copy.assets.featureAlts[i]} loading="lazy" />
+            </picture>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,64 @@
+# ---------- Node / Astro ----------
+node_modules/
+.pnpm-store/
+.npm/
+.yarn/
+.pnp.*
+.cache/
+.astro/
+dist/
+.output/
+.vercel/
+.netlify/
+
+# ---------- Env / secrets ----------
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.keystore
+*.jks
+secrets/
+.secrets/
+.well-known/assetlinks.local.json
+.well-known/apple-app-site-association.local
+
+# ---------- Editor / OS ----------
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+*.swp
+*.swo
+.idea/
+.vscode/
+!.vscode/extensions.json
+*.iml
+
+# ---------- Logs ----------
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ---------- Internal / sensitive docs ----------
+docs/
+DESIGN.md
+PRODUCT.md
+PRIVATE.md
+NOTES.md
+TODO.md
+ROADMAP.md
+*.private.md
+
+# ---------- Dev-only artifacts in repo root ----------
+tweaks-panel.jsx
+uploads/
+
+# ---------- Test / coverage ----------
+coverage/
+.nyc_output/
+playwright-report/
+test-results/

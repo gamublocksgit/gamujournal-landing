@@ -1,0 +1,57 @@
+---
+import { SITE_URL, PARENT_BRAND_URL, STORE_URLS, localeUrl, type LocaleKey } from "../consts";
+
+interface Props {
+  locale: LocaleKey;
+  copy: any;
+}
+
+const { locale, copy } = Astro.props;
+const pageUrl = localeUrl(locale);
+
+const mobileApp = {
+  "@context": "https://schema.org",
+  "@type": "MobileApplication",
+  name: "Gamu Journal",
+  url: pageUrl,
+  applicationCategory: "LifestyleApplication",
+  operatingSystem: "Android, iOS",
+  description: copy.meta.description,
+  downloadUrl: [STORE_URLS.googlePlay, STORE_URLS.appStore],
+  sameAs: [STORE_URLS.googlePlay, STORE_URLS.appStore],
+  offers: [
+    { "@type": "Offer", price: "0", priceCurrency: "USD", name: copy.meta.offerFree },
+    { "@type": "Offer", name: copy.meta.offerPro },
+  ],
+  publisher: {
+    "@type": "Organization",
+    name: "Gamu Blocks",
+    url: PARENT_BRAND_URL,
+  },
+};
+
+const organization = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Gamu Blocks",
+  url: PARENT_BRAND_URL,
+  logo: `${SITE_URL}/assets/logo.png`,
+  sameAs: [SITE_URL, STORE_URLS.googlePlay, STORE_URLS.appStore],
+};
+
+const stripTags = (s: string) => s.replace(/<[^>]*>/g, "");
+
+const faqPage = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: copy.faq.map(([q, a]: [string, string]) => ({
+    "@type": "Question",
+    name: stripTags(q),
+    acceptedAnswer: { "@type": "Answer", text: stripTags(a) },
+  })),
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(mobileApp)} />
+<script type="application/ld+json" set:html={JSON.stringify(organization)} />
+<script type="application/ld+json" set:html={JSON.stringify(faqPage)} />

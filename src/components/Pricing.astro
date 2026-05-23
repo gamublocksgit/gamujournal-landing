@@ -1,0 +1,53 @@
+---
+import { STORE_URLS } from "../consts";
+
+interface Props {
+  copy: any;
+}
+const { copy } = Astro.props;
+const { free, pro } = copy.pricing;
+---
+
+<section class="section pricing" id="pricing" data-screen-label="05 Pricing">
+  <div class="wrap">
+    <div class="section-header">
+      <span class="eyebrow">{copy.pricing.eyebrow}</span>
+      <h2>{copy.pricing.h2}</h2>
+      <p>{copy.pricing.p}</p>
+    </div>
+
+    <div class="price-grid">
+      <article class="price-card">
+        <div class="price-head">
+          <span class="tier">{free.tier}</span>
+          <h3>{free.name}</h3>
+          <div class="price">{free.price}<small>{free.small}</small></div>
+          <span class="note">{free.note}</span>
+        </div>
+        <ul>
+          {free.bullets.map((b: string) => <li>{b}</li>)}
+        </ul>
+        <div class="price-foot">
+          <a class="btn-full" href={STORE_URLS.googlePlay} data-track="price_free">{free.cta}</a>
+          <small>{free.foot}</small>
+        </div>
+      </article>
+
+      <article class="price-card pro">
+        <div class="price-head">
+          <span class="tier">{pro.tier}</span>
+          <h3>{pro.name}</h3>
+          <div class="price">{pro.price}<small>{pro.small}</small></div>
+          <span class="note">{pro.note}</span>
+        </div>
+        <ul>
+          {pro.bullets.map((b: string) => <li>{b}</li>)}
+        </ul>
+        <div class="price-foot">
+          <a class="btn-full solid" href={STORE_URLS.googlePlay} data-track="price_pro">{pro.cta}</a>
+          <small>{pro.foot}</small>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,30 @@
+---
+interface Props {
+  copy: any;
+}
+const { copy } = Astro.props;
+const privacyIcons = ["eye-closed", "cloud", "lock", "download"];
+---
+
+<section class="section privacy reveal" id="privacy" data-screen-label="04 Privacy">
+  <div class="wrap">
+    <div class="section-header on-ink">
+      <span class="eyebrow on-ink">{copy.privacy.eyebrow}</span>
+      <h2 set:html={copy.privacy.h2} />
+      <p>{copy.privacy.p}</p>
+    </div>
+
+    <div class="privacy-grid">
+      {copy.privacy.cards.map((card: [string, string, string], i: number) => (
+        <article class="priv-card">
+          <div class="priv-ic"><img src={`/icons/${privacyIcons[i]}.svg`} alt="" /></div>
+          <span class="label">{card[0]}</span>
+          <h4>{card[1]}</h4>
+          <p set:html={card[2]} />
+        </article>
+      ))}
+    </div>
+
+    <p class="privacy-note" set:html={copy.privacy.note} />
+  </div>
+</section>

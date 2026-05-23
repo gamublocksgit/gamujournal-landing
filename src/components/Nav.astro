@@ -1,0 +1,29 @@
+---
+import LanguageSwitcher from "./LanguageSwitcher.astro";
+import type { LocaleKey } from "../consts";
+
+interface Props {
+  locale: LocaleKey;
+  copy: any;
+}
+const { locale, copy } = Astro.props;
+---
+
+<header class="nav" data-screen-label="00 Nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label={copy.a11y.brandHome}>
+      <span class="brand-mark"><img src="/assets/logo.png" alt="" /></span>
+      <span>Gamu Journal</span>
+    </a>
+    <ul class="nav-links" aria-label={copy.a11y.primaryNav}>
+      <li><a href="#features">{copy.nav[0]}</a></li>
+      <li><a href="#privacy">{copy.nav[1]}</a></li>
+      <li><a href="#pricing">{copy.nav[2]}</a></li>
+      <li><a href="#faq">{copy.nav[3]}</a></li>
+    </ul>
+    <div class="nav-actions">
+      <LanguageSwitcher locale={locale} copy={copy} />
+      <a class="nav-cta" href="#get" data-track="nav_get">{copy.navCta}</a>
+    </div>
+  </div>
+</header>

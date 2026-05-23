@@ -1,0 +1,15 @@
+---
+interface Props {
+  copy: any;
+}
+const { copy } = Astro.props;
+const icons = ["shield-check", "eye-closed", "lock", "download", "notebook"];
+---
+
+<section class="trust-strip" aria-label={copy.a11y.trustFacts}>
+  <div class="wrap">
+    {copy.trust.map((text: string, i: number) => (
+      <span class="trust-item"><img src={`/icons/${icons[i]}.svg`} alt="" />{text}</span>
+    ))}
+  </div>
+</section>
