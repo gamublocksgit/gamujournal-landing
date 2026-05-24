@@ -115,7 +115,7 @@ export const COPY = {
       cards: [
         ["01 · No account", "You don't sign up.", "There is no email, no username, no Sign in with Google. The app opens. You write. That's it."],
         ["02 · No cloud sync", "Your entries never leave your phone.", "We don't run a server for your journal. The data lives in the app's encrypted storage on your device."],
-        ["03 · Local protection", "Lock it with PIN, password or biometrics.", "The journal is encrypted at rest. Unlocking it requires whatever you set, and only on this device, in this app."],
+        ["03 · Local protection", "Lock it with PIN, password or biometrics.", "The journal is encrypted at rest. Unlocking it requires whatever PIN and Biometrics you set."],
         ["04 · You own backups", "Backups are a file, not a service.", "Export an encrypted <code>.gamu</code> file. Put it wherever you want, or nowhere. Import it onto a new phone in seconds."],
       ],
     },
